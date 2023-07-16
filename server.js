@@ -4,12 +4,14 @@ const app = express();
 const indexRouter = require("./routes/index");
 
 const sql = require("mssql");
+require("dotenv").config();
+console.log(process.env.DATABASE_URL);
 
 const config = {
   user: "sa",
-  password: "Ha741753963", //process.env.PASSWORD,
-  server: "localhost", //process.env.DATABASE_URL, // e.g., 'localhost\\SQLEXPRESS'
-  database: "PLANT_LOVER", //process.env.DATABASE_NAME,
+  password: `${process.env.PASSWORD}`,
+  server: `${process.env.DATABASE_URL}`, // e.g., 'localhost\\SQLEXPRESS'
+  database: `${process.env.DATABASE_NAME}`,
   options: {
     trustServerCertificate: true,
   },
