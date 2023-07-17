@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const indexRouter = require("./routes/index");
+const loginRouter = require("./routes/login");
 
 const sql = require("mssql");
 require("dotenv").config();
@@ -17,19 +17,6 @@ const config = {
   },
 };
 
-app.get("/data", async (req, res) => {
-  try {
-    await sql.connect(config);
-    const result = await sql.query("SELECT * FROM Category");
-    res.json(result.recordset);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Server Error");
-  } finally {
-    sql.close();
-  }
-});
-
-app.use("/", indexRouter);
+app.use("/", loginRouter);
 
 app.listen(process.env.PORT || 3000);
