@@ -5,16 +5,18 @@ class UserDTO {
     phoneNumber,
     roleID,
     address,
-    accountID,
-    isDeleted
+    isDeleted,
+    email,
+    password
   ) {
     this.userID = userID;
     this.userName = userName;
     this.phoneNumber = phoneNumber;
     this.roleID = roleID;
     this.address = address;
-    this.accountID = accountID;
     this.isDeleted = isDeleted;
+    this.email = email;
+    this.password = password;
   }
 
   getUserID() {
@@ -57,12 +59,20 @@ class UserDTO {
     this.address = address;
   }
 
-  getAccountID() {
-    return this.accountID;
+  getEmail() {
+    return this.email;
   }
 
-  setAccountID(accountID) {
-    this.accountID = accountID;
+  setEmail(email) {
+    this.email = email;
+  }
+
+  getPassword() {
+    return this.password;
+  }
+
+  setPassword(password) {
+    this.password = password;
   }
 }
 

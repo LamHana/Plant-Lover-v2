@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const AccountDTO = require("../model/AccountDTO");
+const AccountDTO = require("../models/AccountDTO");
 
 router.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-router.get("/data", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     await sql.connect(config);
     const result = await sql.query("SELECT * FROM Category");
